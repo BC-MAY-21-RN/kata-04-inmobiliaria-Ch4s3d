@@ -19,9 +19,22 @@ export class SearchScreen extends Component {
 
   render() {
     return (
-      <View>
-        <Text>SearchScreen</Text>
+      <View style={styles.container}>
+        <View style={styles.component}>
+          <Text>Component</Text>
+          <Text>Component</Text>
+        </View>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 50,
+    paddingLeft: 20,
+    paddingRight: 20,
+    backgroundColor: '#ffffff',
+  },
+});

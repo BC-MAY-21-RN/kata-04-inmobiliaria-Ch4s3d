@@ -34,7 +34,7 @@ const Stack = createNativeStackNavigator();
 const App: () => Node = () => {
   return (
     <NavigationContainer>
-      <StatusBar translucent backgroundColor="transparent" />
+      <StatusBar translucent backgroundColor="black" />
       <Stack.Navigator
         screenOptions={{
           headerShown: false,

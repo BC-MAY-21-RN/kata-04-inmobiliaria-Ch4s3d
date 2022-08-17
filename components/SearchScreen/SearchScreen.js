@@ -10,6 +10,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {PlaceComponent} from '../PlaceComponent/PlaceComponent';
 
 export class SearchScreen extends Component {
   constructor(props) {
@@ -21,8 +22,7 @@ export class SearchScreen extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.component}>
-          <Text>Component</Text>
-          <Text>Component</Text>
+          <PlaceComponent />
         </View>
       </View>
     );

@@ -19,32 +19,16 @@ export class SearchScreen extends Component {
   }
 
   render() {
+    this.data = require('../places.json');
+    //console.log(this.data);
+
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.component}>
-          <PlaceComponent />
-        </View>
-        <View style={styles.component}>
-          <PlaceComponent />
-        </View>
-        <View style={styles.component}>
-          <PlaceComponent />
-        </View>
-        <View style={styles.component}>
-          <PlaceComponent />
-        </View>
-        <View style={styles.component}>
-          <PlaceComponent />
-        </View>
-        <View style={styles.component}>
-          <PlaceComponent />
-        </View>
-        <View style={styles.component}>
-          <PlaceComponent />
-        </View>
-        <View style={styles.component}>
-          <PlaceComponent />
-        </View>
+        {this.data.map((place, index) => (
+          <View style={styles.component} key={index}>
+            <PlaceComponent place={place} />
+          </View>
+        ))}
       </ScrollView>
     );
   }

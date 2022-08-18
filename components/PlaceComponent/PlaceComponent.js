@@ -8,6 +8,7 @@ import {
   ScrollView,
   Button,
   TouchableHighlight,
+  ImageBackground,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
@@ -27,16 +28,18 @@ export class PlaceComponent extends Component {
   }
 
   render() {
+    let place = this.props;
+    let imgUrl = '../../assets/img/' + place.place.img_url;
+    //console.log(imgUrl);
     return (
       <View style={styles.container}>
         <View style={styles.FavoriteButton}>
           <FontAwesomeIcon icon={faHeart} size={10} color={'white'} />
         </View>
         <View style={styles.ImageContainer}>
-          <Image
-            source={{
-              uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
-            }}
+          <ImageBackground
+            style={styles.Image}
+            source={require('../../assets/img/guaranty_building.jpg')}
           />
           <View style={styles.StarContainer}>
             <FontAwesomeIcon icon={faStar} size={10} color={'#BF7839'} />
@@ -44,28 +47,29 @@ export class PlaceComponent extends Component {
           </View>
         </View>
         <View style={styles.Right}>
-          <Text style={styles.Title}>Title</Text>
+          <Text style={styles.Title}>{place.place.title}</Text>
           <View style={styles.FlexRight}>
             <FontAwesomeIcon icon={faLocationDot} size={10} color={'black'} />
-            <Text style={styles.MarginLeft}>Ubication</Text>
+            <Text style={styles.MarginLeft}>{place.place.address}</Text>
           </View>
           <View style={styles.Row}>
             <View style={styles.FlexRight}>
               <FontAwesomeIcon icon={faBed} size={15} color={'black'} />
-              <Text style={styles.MarginLeft}>3</Text>
+              <Text style={styles.MarginLeft}>{place.place.bedrooms}</Text>
             </View>
             <View style={styles.FlexRight}>
               <FontAwesomeIcon icon={faBath} size={15} color={'black'} />
-              <Text style={styles.MarginLeft}>2</Text>
+              <Text style={styles.MarginLeft}>{place.place.bathrooms}</Text>
             </View>
             <View style={styles.FlexRight}>
               <FontAwesomeIcon icon={faRuler} size={15} color={'black'} />
               <Text style={styles.MarginLeft}>
-                230 ft <Text style={styles.SquaredSimbol}>2</Text>{' '}
+                {place.place.metrics}ft
+                <Text style={styles.SquaredSimbol}>2</Text>{' '}
               </Text>
             </View>
           </View>
-          <Text style={styles.Price}>$Price/m</Text>
+          <Text style={styles.Price}>${place.place.price}/m</Text>
         </View>
       </View>
     );
@@ -97,13 +101,17 @@ const styles = StyleSheet.create({
   ImageContainer: {
     width: 75,
     height: 75,
-    backgroundColor: 'black',
     marginRight: 10,
-    borderRadius: 10,
     flexDirection: 'column',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    paddingBottom: 5,
+    position: 'relative',
+    borderRadius: '50%',
+  },
+  Image: {
+    width: '100%',
+    height: undefined,
+    aspectRatio: 1,
   },
   Right: {
     width: '75%',
@@ -122,6 +130,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'absolute',
+    bottom: 10,
+    right: 15,
   },
   StarContainerText: {
     fontSize: 10,

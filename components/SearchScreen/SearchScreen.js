@@ -20,11 +20,32 @@ export class SearchScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.component}>
           <PlaceComponent />
         </View>
-      </View>
+        <View style={styles.component}>
+          <PlaceComponent />
+        </View>
+        <View style={styles.component}>
+          <PlaceComponent />
+        </View>
+        <View style={styles.component}>
+          <PlaceComponent />
+        </View>
+        <View style={styles.component}>
+          <PlaceComponent />
+        </View>
+        <View style={styles.component}>
+          <PlaceComponent />
+        </View>
+        <View style={styles.component}>
+          <PlaceComponent />
+        </View>
+        <View style={styles.component}>
+          <PlaceComponent />
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -36,5 +57,8 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     backgroundColor: '#ffffff',
+  },
+  component: {
+    marginBottom: 20,
   },
 });
